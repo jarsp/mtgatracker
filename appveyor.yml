@@ -11,6 +11,8 @@ install:
   - C:\Python36\Python.exe -m pip install virtualenv
   - virtualenv venv
   - source venv/Scripts/activate
+  - pip install -r requirements.txt
+  - pip install -r requirements-tests.txt
   - cd electron
   - npm install
 
