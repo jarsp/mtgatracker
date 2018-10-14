@@ -20,7 +20,7 @@ install:
 
 build_script:
   - cd ..
-  - sh build.sh 9.9.9
+  - sh build.sh
 
 test: off
 

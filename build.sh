@@ -5,8 +5,13 @@ start_raw=$(date)
 
 if (( "$#" != 1 ))
 then
-    echo "Must provide version string to use (e.g. 0.1.0-alpha)"
-exit 1
+    appveyor_version=$(echo $APPVEYOR_REPO_BRANCH | cut -f1 -d "/")
+    if [[ "$appveyor_version" =~ "[0-9]\.[0-9]\.[0-9]" ]]; then
+        echo "valid version / branch: $appveyor_version"
+    else
+        echo "invalid version: $appveyor_version using 9.9.9 instead"
+        appveyor_version="9.9.9"
+    fi
 fi
 
 echo "Build start: $start_raw"
