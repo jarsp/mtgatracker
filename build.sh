@@ -14,6 +14,7 @@ then
         appveyor_version="9.9.9"
     fi
     version=$appveyor_version
+    appveyor UpdateBuild -EnvironmentVariables buildtag=$appveyor_version || echo "not in appveyor"
 fi
 
 echo "Build start: $start_raw"

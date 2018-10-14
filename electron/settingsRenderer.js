@@ -66,6 +66,14 @@ var settingsData = {
 let commitFile = "version_commit.txt"
 let buildFile = "version_build.txt"
 
+fs.readdir(".", (err, files) => {
+  console.log(files)
+  settingsData.curDir = files;
+  files.forEach(file => {
+    console.log(file)
+  })
+})
+
 fs.readFile(commitFile, "utf8", (err, data) => {
   settingsData.commit = data;
 })
