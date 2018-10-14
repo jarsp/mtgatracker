@@ -63,11 +63,19 @@ var settingsData = {
   ],
 }
 
-fs.readFile("version_commit.txt", "utf8", (err, data) => {
+let commitFile = "version_commit.txt"
+let buildFile = "version_build.txt"
+
+if (settingsData.runFromSource) {
+  commitFile = path.join("..", commitFile)
+  buildFile = path.join("..", buildFile)
+}
+
+fs.readFile(commitFile, "utf8", (err, data) => {
   settingsData.commit = data;
 })
 
-fs.readFile("version_build.txt", "utf8", (err, data) => {
+fs.readFile(buildFile, "utf8", (err, data) => {
   settingsData.build = data;
 })
 
@@ -156,7 +164,7 @@ rivets.binders.authref = (el, val) => {
 document.addEventListener("DOMContentLoaded", function(event) {
   rivets.bind(document.getElementById('container'), settingsData)
 
-  let themePath = settingsData.runFromSource ? "themes" : "../themes";
+  let themePath = settingsData.runFromSource ? "themes" : path.join("..", "themes");
   fs.readdir(themePath, (err, files) => {
     if(files) {
       files.forEach((val) => {
