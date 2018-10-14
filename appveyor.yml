@@ -24,6 +24,10 @@ build_script:
 
 test: off
 
+artifacts:
+  - path: 'MTGATracker-win32-x64_*-SQUIRREL/*.nupkg'
+  - path: 'MTGATracker-win32-x64_*-SQUIRREL/*.exe'
+
 #environment:
 #  GH_TOKEN:
 #     secure: H2b1mq+K/miUzkxP1jtaiNwonVsUPMDxqtQknijwNFCmIFjz0DFF7ktgXZ8nzA81

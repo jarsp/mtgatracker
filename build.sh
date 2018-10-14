@@ -84,6 +84,7 @@ EOM
 sleep 1
 
 DEBUG=electron-windows-installer:main node testbuild.js
+sleep 1
 
 mv MTGATracker-win32-x64_$version-SQUIRREL/Setup.exe MTGATracker-win32-x64_$version-SQUIRREL/setup_mtgatracker_$version.exe
 
