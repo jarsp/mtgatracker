@@ -37,6 +37,10 @@ rm -r MTGATracker-win32-x64_$version* || echo "nothing to remove, moving on"
 rm -r electron/legal || echo "no legal to update"
 cp -r legal electron/legal
 
+
+echo "$APPVEYOR_REPO_COMMIT" > electron/version_commit.txt
+echo "$APPVEYOR_BUILD_NUMBER" > electron/version_build.txt
+
 yes | ./electron/node_modules/.bin/electron-packager electron/ MTGATracker \
   --overwrite --version=$cleanVer --electron-version=1.8.8 \
   --ignore="\.git.*" --ignore=".*psd" --ignore="upload_failure\.log" --ignore="mtga_watch\.log.*" \
@@ -54,9 +58,6 @@ yes | ./electron/node_modules/.bin/electron-packager electron/ MTGATracker \
 mv MTGATracker-win32-x64 MTGATracker-win32-x64_$version
 
 cd electron
-
-echo "$APPVEYOR_REPO_COMMIT" > version_commit.txt
-echo "$APPVEYOR_BUILD_NUMBER" > version_build.txt
 
 cat > testbuild.js <<- EOM
 const request = require("request")
@@ -97,6 +98,7 @@ sleep 1
 DEBUG=electron-windows-installer:main node testbuild.js
 sleep 1
 
+cd ..
 mv MTGATracker-win32-x64_$version-SQUIRREL/Setup.exe MTGATracker-win32-x64_$version-SQUIRREL/setup_mtgatracker_$version.exe
 
 end=$(date +%s)

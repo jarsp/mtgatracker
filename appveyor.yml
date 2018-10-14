@@ -1,10 +1,10 @@
 platform:
   - x64
 
-#cache:
-#  - node_modules
-#  - '%APPDATA%\npm-cache'
-#  - '%USERPROFILE%\.electron'
+cache:
+  - node_modules
+  - '%APPDATA%\npm-cache'
+  - '%USERPROFILE%\.electron'
 
 # thank you! https://github.com/chef-cookbooks/powershell/pull/113/files
 init:
@@ -36,4 +36,4 @@ artifacts:
 
 #environment:
 #  GH_TOKEN:
-#     secure: H2b1mq+K/miUzkxP1jtaiNwonVsUPMDxqtQknijwNFCmIFjz0DFF7ktgXZ8nzA81
+#     secure: <use appveyor to secure this, tbh not sure how though>

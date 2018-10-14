@@ -66,11 +66,6 @@ var settingsData = {
 let commitFile = "version_commit.txt"
 let buildFile = "version_build.txt"
 
-if (settingsData.runFromSource) {
-  commitFile = path.join("..", commitFile)
-  buildFile = path.join("..", buildFile)
-}
-
 fs.readFile(commitFile, "utf8", (err, data) => {
   settingsData.commit = data;
 })
