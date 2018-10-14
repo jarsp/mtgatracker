@@ -10,6 +10,9 @@ install:
   - ps: Install-Product node 8 x64
   - cd electron
   - npm install
+  - C:\Python36\Python.exe -m pip install virtualenv
+  - virtualenv venv
+  - source venv/Scripts/activate
 
 build_script:
   - cd ..
