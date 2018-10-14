@@ -8,8 +8,7 @@ cache:
 
 install:
   - ps: Install-Product node 8 x64
-  - C:\Python36\Python.exe -m pip install virtualenv
-  - virtualenv venv
+  - virtualenv venv -p C:\Python36\Python.exe
   - venv/Scripts/activate
   - where python
   - python --version
